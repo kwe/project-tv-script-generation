@@ -119,8 +119,21 @@ def token_lookup():
     :return: Tokenized dictionary where the key is the punctuation and the value is the token
     """
     # TODO: Implement Function
-        
-    return None
+    # Replace punctuation with tokens so we can use them in our model
+    tokens = dict()
+    tokens['.'] = '||PERIOD||'
+    tokens[','] = '||COMMA||'
+    tokens['"'] = '||QUOTATION_MARK||'
+    tokens[';'] = '||SEMICOLON||'
+    tokens['!'] = '||EXCLAMATION_MARK||'
+    tokens['?'] = '||QUESTION_MARK||'
+    tokens['('] = '||LEFT_PAREN||'
+    tokens[')'] = '||RIGHT_PAREN||'
+    tokens['?'] = '||QUESTION_MARK||'
+    tokens['\n'] = '||RETURN||'
+    tokens['-'] = '||DASH||'
+
+    return tokens
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
