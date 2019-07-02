@@ -150,8 +150,8 @@ def test_rnn(RNN, train_on_gpu):
     
     # create test input
     a = np.random.randint(vocab_size, size=(batch_size, sequence_length))
-    #b = torch.LongTensor(a)
-    b = torch.from_numpy(a)
+    b = torch.LongTensor(a)
+    #b = torch.from_numpy(a)
     hidden = rnn.init_hidden(batch_size)
     
     
