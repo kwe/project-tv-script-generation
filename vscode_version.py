@@ -533,7 +533,7 @@ def train_rnn(rnn, batch_size, optimizer, criterion, n_epochs, show_every_n_batc
 #%%
 # Data params
 # Sequence Length
-sequence_length = 5  # of words in a sequence
+sequence_length = 15  # of words in a sequence
 # Batch Size
 batch_size = 128
 
@@ -544,9 +544,9 @@ train_loader = batch_data(int_text, sequence_length, batch_size)
 #%%
 # Training parameters
 # Number of Epochs
-num_epochs = 1 
+num_epochs = 7 
 # Learning Rate
-learning_rate = 0.01 
+learning_rate = 0.001 
 
 # Model parameters
 # Vocab size
