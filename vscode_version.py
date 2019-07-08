@@ -247,8 +247,8 @@ def batch_data(words, sequence_length, batch_size):
         y.append(batch_y)
 
     # create Tensor datasets
-    data = TensorDataset(torch.from_numpy(np.asarray(x)),
-                         torch.from_numpy(np.asarray(y)))
+    data = TensorDataset(torch.from_numpy(np.asarray(x,dtype=np.int64)),
+                         torch.from_numpy(np.asarray(y,dtype=np.int64)))
     # make sure the SHUFFLE your training data
     data_loader = DataLoader(data, shuffle=False, batch_size=batch_size)
     # return a dataloader
