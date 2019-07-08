@@ -241,9 +241,7 @@ def batch_data(words, sequence_length, batch_size):
         idx_end = sequence_length + idx
         x_batch = words[idx:idx_end]
         x.append(x_batch)
-        print("feature batch: ",x_batch)
         batch_y = words[idx_end]
-        print("target batch: ", batch_y)
         y.append(batch_y)
 
     # create Tensor datasets
@@ -544,7 +542,7 @@ train_loader = batch_data(int_text, sequence_length, batch_size)
 #%%
 # Training parameters
 # Number of Epochs
-num_epochs = 7 
+num_epochs = 1 
 # Learning Rate
 learning_rate = 0.001 
 
@@ -675,7 +673,7 @@ def generate(rnn, prime_id, int_to_vocab, token_dict, pad_value, predict_len=100
         predicted.append(word)     
         
         # the generated word becomes the next "current sequence" and the cycle can continue
-        current_seq = np.roll(current_seq, -1, 1)
+        current_seq = np.roll(current_seq.cpu(), -1, 1)
         current_seq[-1][-1] = word_i
     
     gen_sentences = ' '.join(predicted)
